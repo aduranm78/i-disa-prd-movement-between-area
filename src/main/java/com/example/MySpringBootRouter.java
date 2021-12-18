@@ -49,6 +49,7 @@ public class MySpringBootRouter extends RouteBuilder {
     	    	exchange.getMessage().setHeader(Exchange.HTTP_QUERY, "warehouse=28002&between=" + encodedDateRange);
     	    	exchange.getMessage().setHeader(Exchange.HTTP_URI, wmsUri);
     		})
+			//Esperemos ya no falle
     		.to("log:DEBUG?showBody=true&showHeaders=true")
     		//.to("https://test?throwExceptionOnFailure=false") // Para no lanzar errores
     		.to("https://wms")
